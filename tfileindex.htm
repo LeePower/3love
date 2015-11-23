@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>本班恩師</title>
+<script language="JavaScript1.2">
+<!--
+
+var isNS = (navigator.appName == "Netscape");
+layerRef = (isNS) ? "document" : "document.all";
+styleRef = (isNS) ? "" : ".style";
+var queue = new Array();
+var NUM_OF_TRAIL_PARTS = 5;
+
+for (x=1; x < 6; x++) {
+	eval("trailSpriteFrame" + x + " = new Image(28,36);");
+	eval("trailSpriteFrame" + x + ".src = 'mouse" + x + ".gif';");
+}
+
+function trailSpriteObj(anID) {
+	this.trailSpriteID = "trailSprite" + anID;
+	this.imgRef = "trailSprite" + anID + "img";
+	this.currentFrame = 1;
+	this.animateTrailSprite = animateTrailSprite;
+}
+
+function animateTrailSprite() {
+	if (this.currentFrame <6 ) {
+		if (isNS)	eval("document." + this.trailSpriteID +".document['"+ this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+		else		eval("document['" + this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+
+		this.currentFrame ++;
+	}
+	else	eval(layerRef + '.' + this.trailSpriteID +  styleRef + '.visibility = "hidden"');	
+}
+
+function processAnim() {
+	for(x=0; x < NUM_OF_TRAIL_PARTS; x++)
+	queue[x].animateTrailSprite();
+}
+
+function processMouse(e) {
+	currentObj = shuffleQueue();
+	if (isNS) {
+		eval("document." + currentObj + ".left = e.pageX - 10;");
+		eval("document." + currentObj + ".top = e.pageY + 10;");
+	}
+	else {
+		eval("document.all." + currentObj + ".style.pixelLeft = event.clientX + document.body.scrollLeft - 10 ;");
+		eval("document.all." + currentObj + ".style.pixelTop = event.clientY + document.body.scrollTop + 20;");
+	}
+}
+
+function shuffleQueue() {
+	lastItemPos = queue.length - 1;
+	lastItem = queue[lastItemPos];
+	for (i = lastItemPos; i>0; i--) 	queue[i] = queue[i-1];
+	queue[0] = lastItem;
+	queue[0].currentFrame = 1;
+	eval(layerRef + '.' + queue[0].trailSpriteID +  styleRef + '.visibility = "visible"');	
+	return 	queue[0].trailSpriteID;
+}
+
+function MM_init() {
+	for(x=0; x<NUM_OF_TRAIL_PARTS; x++)	queue[x] = new trailSpriteObj(x+1) ;
+	if (isNS)	document.captureEvents(Event.MOUSEMOVE);
+	document.onmousemove = processMouse;
+	setInterval("processAnim();",5);
+}	
+
+//-->
+
+</script>
+</head>
+
+<body onload="MM_init();" bgcolor="#000000" text="#FFFFFF">
+<div id="trailSprite1" style="position: absolute; height:28px; width:36px;z-index: 10000"><img SRC="mouse.gif" NAME="trailSprite3img" BORDER=0 height=7 width=7></div>
+
+<div id="trailSprite2" style="position: absolute; height:28px; width:26px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite2img" BORDER=0 height=5 width=5></div>
+
+<div id="trailSprite3" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite1img" BORDER=0 height=14 width=14></div>
+
+<div id="trailSprite4" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite5img" BORDER=0 height=11 width=11></div>
+
+<div id="trailSprite5" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite4img" BORDER=0 height=9 width=9></div>
+<div id="Layer7" style="position:absolute; width:35px; height:29px; z-index:1; left: 201px; top: 393px"><img src="aboutball.gif" width="50" height="50"></div>
+<div id="Layer1" style="position:absolute; width:200px; height:115px; z-index:1; left: 35px; top: 7px"> 
+  <table border="0" width="12%" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="100%"> 
+        <p>　<img border="0" src="tfiletitle.jpg" align="right" width="300" height="225"> 
+      </td>
+    </tr>
+    <tr> 
+      <td width="100%" height="29"> 
+        <p align="center"><img src="tfiletitlebar.jpg" width="288" height="40"> 
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="Layer2" style="position:absolute; width:326px; height:19px; z-index:2; left: 344px; top: 25px"><img border="0" src="tindexbar.gif" width="360" height="40"></div>
+<div id="Layer3" style="position:absolute; width:231px; height:103px; z-index:3; left: 52px; top: 307px"> 
+  <p><font color="#CCCCFF"><b><i><font color="555555">古</font></i></b></font><font size="2" color="555555"><i>人有云：先有伯樂，而後有千里馬。<br>
+    若沒有老師的諄諄教誨…<br>
+    學生何來的成就呢？<br>
+    因此，今日畢業了，<br>
+    我們理當飲水思源…<br>
+    將老師們平常的一字一句，<br>
+    烙印在心裡………</i></font></p>
+</div>
+<div id="Layer3" style="position:absolute; width:231px; height:103px; z-index:3; left: 50px; top: 305px"> 
+  <p><font color="#CCCCFF"><b><i><font color="#FFFFFF">古</font></i></b></font><font size="2" color="#CCCCFF"><i>人有云：先有伯樂，而後有千里馬。<br>
+    若沒有老師的諄諄教誨…<br>
+    學生何來的成就呢？<br>
+    因此，今日畢業了，<br>
+    我們理當飲水思源…<br>
+    將老師們平常的一字一句，<br>
+    烙印在心裡………</i></font></p>
+</div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 658px; top: 165px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 661px; top: 83px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 585px; top: 232px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 520px; top: 306px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 429px; top: 306px"><img src="tfileiconc.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 422px; top: 383px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 340px; top: 383px"><img src="tfileiconc.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 249px; top: 383px"><img src="tfileicon.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 558px; top: 83px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:62px; z-index:4; left: 553px; top: 165px"><img src="tfileiconc.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 488px; top: 232px"><img src="tfileiconc.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 396px; top: 232px"><img src="tfileicon.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 339px; top: 306px"><img src="tfileicon.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 460px; top: 83px"><img src="tfileiconb.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 460px; top: 165px"><img src="tfileiconc.gif" width="60" height="60"></div>
+<div id="Layer4" style="position:absolute; width:49px; height:47px; z-index:4; left: 356px; top: 79px"><img src="tfileicond.gif" width="60" height="60"></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 357px; top: 97px"><b><font size="5" color="#0000aa"><i><font size="4"><a href="oldbig.htm"><font color="0000aa">高</font></a></font></i></font></b><font color="0000ff"><a href="oldbig.htm"><font size="2"><b><font color="0000aa">老大</font></b></font></a></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 255px; top: 405px"><b><font size="5" color="#0000aa"><i><font size="4"><a href="tfilehle.htm"><font color="0000bb">黃</font></a></font></i></font></b><font color="0000aa"><a href="tfilehle.htm"><font size="2"><b><font color="0000bb">麗燕</font></b></font></a></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 562px; top: 106px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF33"><a href="tfilepes.htm"><font color="ffff33">彭</font></a></font></i></font></b><font color="ffff00"><a href="tfilepes.htm"><font size="2"><b><font color="ffff33">類聖</font></b></font></a></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 466px; top: 105px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF33"><a href="tfilelsg.htm"><font color="ffff33">林</font></a></font></i></font></b><a href="tfilelsg.htm"><font color="#FFFF33" size="2"><b>鑫政</b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 344px; top: 326px"><b><font size="5" color="#0000aa"><i><font size="4"><a href="tfilehls.htm"><font color="0000bb">黃</font></a></font></i></font></b><font color="0000aa"><a href="tfilehls.htm"><font size="2"><b><font color="0000bb">麗欣</font></b></font></a></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 400px; top: 253px"><b><font size="5" color="#0000aa"><i><font size="4"><a href="tfilejhm.htm"><font color="0000bb">簡</font></a></font></i></font></b><font color="0000aa"><a href="tfilejhm.htm"><font size="2"><b><font color="0000bb">惠眉</font></b></font></a></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 667px; top: 105px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF33"><a href="tfilehwj.htm"><font color="#FFFF32">胡</font></a></font></i></font></b><font color="#FFFF00" size="2"><b><a href="tfilehwj.htm"><font color="#FFFF33">文</font><font color="#FFFF32"><font color="#FFFF33">章</font></font></a></b></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 664px; top: 188px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF00"><a href="tfilewpw.htm"><font color="#FFFF33">王</font></a></font></i></font></b><a href="tfilewpw.htm"><font color="#FFFF00" size="2"><b><font color="#FFFF33">佩文</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 590px; top: 253px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF33">湯</font></i></font></b><font color="#FFFF33" size="2"><b>兆蘭</b></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:23px; z-index:5; left: 590px; top: 253px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF00"><a href="tfiletgl.htm"><font color="#FFFF33">湯</font></a></font></i></font></b><font color="#FFFF00" size="2"><b><a href="tfiletgl.htm"><font color="#FFFF33">兆蘭</font></a></b></font></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 429px; top: 405px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF00"><a href="tfileglg.htm"><font color="#FFFF33">張</font></a></font></i></font></b><a href="tfileglg.htm"><font color="#FFFF00" size="2"><b><font color="#FFFF33">莉君</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 464px; top: 188px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FF01FF"><a href="tfilethj.htm"><font color="#FF00FF">陶</font></a></font></i></font></b><a href="tfilethj.htm"><font color="#FF01FF" size="2"><b><font color="#FF00FF">慧君</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 495px; top: 253px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FF01FF"><a href="tfilelmw.htm"><font color="#FF00FF">劉</font></a></font></i></font></b><a href="tfilelmw.htm"><font color="#FF01FF" size="2"><b><font color="#FF00FF">明維</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 556px; top: 188px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FF01FF"><a href="tfilegsl.htm"><font color="#FF00FF">莊</font></a></font></i></font></b><a href="tfilegsl.htm"><font color="#FF01FF" size="2"><b><font color="#FF00FF">淑玲</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 436px; top: 326px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FF01FF"><a href="tfilefkl.htm"><font color="#FF00FF">方</font></a></font></i></font></b><a href="tfilefkl.htm"><font color="#FF01FF" size="2"><b><font color="#FF00FF">克禮</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 347px; top: 405px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FF01FF"><a href="tfilewhl.htm"><font color="#FF00FF">伍</font></a></font></i></font></b><a href="tfilewhl.htm"><font color="#FF01FF" size="2"><b><font color="#FF00FF">宏麟</font></b></font></a></div>
+<div id="Layer5" style="position:absolute; width:49px; height:20px; z-index:5; left: 527px; top: 326px"><b><font size="5" color="#0000aa"><i><font size="4" color="#FFFF00"><a href="tfileulj.htm"><font color="#FFFF33">游</font></a></font></i></font></b><a href="tfileulj.htm"><font color="#FFFF00" size="2"><b><font color="#FFFF33">玲珠</font></b></font></a></div>
+<div id="Layer11" style="position:absolute; width:343px; height:16px; z-index:10004; left: 412px; top: 470px"><a href="aboutindex.htm"><img src="abouticon00.gif" width="70" height="20" border="0"></a><a href="sfileindex.htm"><img src="abouticon02.gif" width="70" height="20" border="0"></a><a href="lifeindex.htm"><img src="abouticon03.gif" width="70" height="20" border="0"></a><a href="sayindex.htm"><img src="abouticon04.gif" width="70" height="20" border="0"></a><a href="indexmain.htm"><img src="abouticon05.gif" width="56" height="20" border="0"></a></div>
+<div id="Layer6" style="position:absolute; width:97px; height:29px; z-index:6; left: 595px; top: 385px"><img src="tfiletitle2.gif" width="160" height="77"></div>
+</body>
+
+</html>

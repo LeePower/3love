@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>學生資料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<script language="JavaScript1.2">
+<!--
+
+var isNS = (navigator.appName == "Netscape");
+layerRef = (isNS) ? "document" : "document.all";
+styleRef = (isNS) ? "" : ".style";
+var queue = new Array();
+var NUM_OF_TRAIL_PARTS = 5;
+
+for (x=1; x < 6; x++) {
+	eval("trailSpriteFrame" + x + " = new Image(28,36);");
+	eval("trailSpriteFrame" + x + ".src = 'mouse" + x + ".gif';");
+}
+
+function trailSpriteObj(anID) {
+	this.trailSpriteID = "trailSprite" + anID;
+	this.imgRef = "trailSprite" + anID + "img";
+	this.currentFrame = 1;
+	this.animateTrailSprite = animateTrailSprite;
+}
+
+function animateTrailSprite() {
+	if (this.currentFrame <6 ) {
+		if (isNS)	eval("document." + this.trailSpriteID +".document['"+ this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+		else		eval("document['" + this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+
+		this.currentFrame ++;
+	}
+	else	eval(layerRef + '.' + this.trailSpriteID +  styleRef + '.visibility = "hidden"');	
+}
+
+function processAnim() {
+	for(x=0; x < NUM_OF_TRAIL_PARTS; x++)
+	queue[x].animateTrailSprite();
+}
+
+function processMouse(e) {
+	currentObj = shuffleQueue();
+	if (isNS) {
+		eval("document." + currentObj + ".left = e.pageX - 10;");
+		eval("document." + currentObj + ".top = e.pageY + 10;");
+	}
+	else {
+		eval("document.all." + currentObj + ".style.pixelLeft = event.clientX + document.body.scrollLeft - 10 ;");
+		eval("document.all." + currentObj + ".style.pixelTop = event.clientY + document.body.scrollTop + 20;");
+	}
+}
+
+function shuffleQueue() {
+	lastItemPos = queue.length - 1;
+	lastItem = queue[lastItemPos];
+	for (i = lastItemPos; i>0; i--) 	queue[i] = queue[i-1];
+	queue[0] = lastItem;
+	queue[0].currentFrame = 1;
+	eval(layerRef + '.' + queue[0].trailSpriteID +  styleRef + '.visibility = "visible"');	
+	return 	queue[0].trailSpriteID;
+}
+
+function MM_init() {
+	for(x=0; x<NUM_OF_TRAIL_PARTS; x++)	queue[x] = new trailSpriteObj(x+1) ;
+	if (isNS)	document.captureEvents(Event.MOUSEMOVE);
+	document.onmousemove = processMouse;
+	setInterval("processAnim();",5);
+}	
+
+//-->
+
+</script>
+</head>
+
+<body onload="MM_init();" bgcolor="000000" text="ffffaa">
+<div id="trailSprite1" style="position: absolute; height:28px; width:36px;z-index: 10000"><img SRC="mouse.gif" NAME="trailSprite3img" BORDER=0 height=7 width=7></div>
+
+<div id="trailSprite2" style="position: absolute; height:28px; width:26px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite2img" BORDER=0 height=5 width=5></div>
+
+<div id="trailSprite3" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite1img" BORDER=0 height=14 width=14></div>
+
+<div id="trailSprite4" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite5img" BORDER=0 height=11 width=11></div>
+
+<div id="trailSprite5" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite4img" BORDER=0 height=9 width=9></div>
+<div id="Layer5" style="position:absolute; width:288px; height:128px; z-index:5; left: 60px; top: 344px">
+  <p><b><i><font color="555555">在</font></i></b><font size="2" color="555555">這生命中，最為可貴的東西是什麼？<br>
+    沒有別的，就屬朋友最為可貴，<br>
+    感謝國中生涯中…上天又讓我交了這麼多好朋友，<br>
+    但是現在，大家即將各分東西，<br>
+    到了未來，我們醇厚的友誼，<br>
+    一定會隨著時間之流，沖淡了不少…<br>
+    難道我們之間的友誼，僅在那一千多個日子嗎？<br>
+    不、不能如此，我們要永遠記著</font><font size="2" color="555555">朋友<br>
+    ，讓我們情誼的保存期限…直到世界末日…<br>
+    勿忘我!!無論經過多久…我們是永遠的朋友…</font></p>
+  </div>
+<div id="Layer5" style="position:absolute; width:288px; height:128px; z-index:10005; left: 58px; top: 342px"><b><i><font color="ffffff">在</font></i></b><font size="2">這生命中，最為可貴的東西是什麼？<br>
+  沒有別的，就屬朋友最為可貴，<br>
+  感謝國中生涯中…上天又讓我交了這麼多好朋友，<br>
+  但是現在，大家即將各分東西，<br>
+  到了未來，我們醇厚的友誼，<br>
+  一定會隨著時間之流，沖淡了不少…<br>
+  難道我們之間的友誼，僅在那一千多個日子嗎？<br>
+  不、不能如此，我們要永遠記著朋友<br>
+  ，讓我們情誼的保存期限…直到世界末日…<br>
+  勿忘我!!無論經過多久…我們是永遠的朋友…</font></div>
+<div id="Layer1" style="position:absolute; width:200px; height:115px; z-index:1; left: 57px; top: 31px"><img src="sfiletitle.jpg" width="400" height="300"></div>
+<div id="Layer2" style="position:absolute; width:100px; height:24px; z-index:2; left: 529px; top: 111px"><a href="fileindex2.htm"><img src="sfileicon2.gif" width="180" height="50" border="0"></a></div>
+<div id="Layer2" style="position:absolute; width:100px; height:24px; z-index:2; left: 557px; top: 52px"><a href="fileindex.htm"><img src="sfileicon1.gif" width="180" height="50" border="0"></a></div>
+<div id="Layer2" style="position:absolute; width:100px; height:24px; z-index:2; left: 504px; top: 174px"><a href="fileindex3.htm"><img src="sfileicon3.gif" width="180" height="50" border="0"></a></div>
+<div id="Layer2" style="position:absolute; width:100px; height:24px; z-index:2; left: 477px; top: 229px"><a href="fileindex4.htm"><img src="sfileicon4.gif" width="180" height="50" border="0"></a></div>
+<div id="Layer2" style="position:absolute; width:100px; height:24px; z-index:2; left: 440px; top: 287px"><a href="fileindex5.htm"><img src="sfileicon5.gif" width="180" height="50" border="0"></a></div>
+<div id="Layer3" style="position:absolute; width:84px; height:13px; z-index:3; left: 419px; top: 20px"><img src="sfileball.gif" width="140" height="25"></div>
+<div id="Layer4" style="position:absolute; width:120px; height:108px; z-index:4; left: 590px; top: 407px"> 
+  <table border="0" width="150" height="120" bgcolor="#0000FF" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td width="147" align="center" bgcolor="#000055"><font size="2"><b><i><font color="#FFFF00">☆頁面附註☆</font></i></b></font></td>
+    </tr>
+    <tr> 
+      <td width="147" align="center" bgcolor="#000044"><font color="#FFFFFF" size="2">PAGE.1：1號～10號</font></td>
+    </tr>
+    <tr> 
+      <td width="147" align="center" bgcolor="#000033"><font color="#FFFFFF" size="2">PAGE.2：11號～20號</font></td>
+    </tr>
+    <tr> 
+      <td width="147" align="center" bgcolor="#000022"><font color="#FFFFFF" size="2">PAGE.3：21號～30號</font></td>
+    </tr>
+    <tr> 
+      <td width="147" align="center" bgcolor="#000011"><font color="#FFFFFF" size="2">PAGE.4：31號～40號</font></td>
+    </tr>
+    <tr> 
+      <td width="147" align="center" bgcolor="#000000"><font color="#FFFFFF" size="2">PAGE.5：41號～49號</font></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer11" style="position:absolute; width:343px; height:16px; z-index:10004; left: 404px; top: 540px"><a href="aboutindex.htm"><img src="abouticon00.gif" width="70" height="20" border="0"></a><a href="tfileindex.htm"><img src="abouticon01.gif" width="70" height="20" border="0"></a><a href="lifeindex.htm"><img src="abouticon03.gif" width="70" height="20" border="0"></a><a href="sayindex.htm"><img src="abouticon04.gif" width="70" height="20" border="0"></a><a href="indexmain.htm"><img src="abouticon05.gif" width="56" height="20" border="0"></a></div>
+<div id="Layer7" style="position:absolute; width:35px; height:29px; z-index:1; left: 319px; top: 472px"><img src="aboutball.gif" width="50" height="50"></div>
+<div id="Layer6" style="position:absolute; width:9px; height:445px; z-index:10006; left: 24px; top: 31px"><img src="sfilebar.gif" width="20" height="500"></div>
+</body>
+</html>

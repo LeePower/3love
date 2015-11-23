@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>生活快門--抓住我們共同的過去…</title>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<script language="JavaScript1.2">
+<!--
+
+var isNS = (navigator.appName == "Netscape");
+layerRef = (isNS) ? "document" : "document.all";
+styleRef = (isNS) ? "" : ".style";
+var queue = new Array();
+var NUM_OF_TRAIL_PARTS = 5;
+
+for (x=1; x < 6; x++) {
+	eval("trailSpriteFrame" + x + " = new Image(28,36);");
+	eval("trailSpriteFrame" + x + ".src = 'mouse" + x + ".gif';");
+}
+
+function trailSpriteObj(anID) {
+	this.trailSpriteID = "trailSprite" + anID;
+	this.imgRef = "trailSprite" + anID + "img";
+	this.currentFrame = 1;
+	this.animateTrailSprite = animateTrailSprite;
+}
+
+function animateTrailSprite() {
+	if (this.currentFrame <6 ) {
+		if (isNS)	eval("document." + this.trailSpriteID +".document['"+ this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+		else		eval("document['" + this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+
+		this.currentFrame ++;
+	}
+	else	eval(layerRef + '.' + this.trailSpriteID +  styleRef + '.visibility = "hidden"');	
+}
+
+function processAnim() {
+	for(x=0; x < NUM_OF_TRAIL_PARTS; x++)
+	queue[x].animateTrailSprite();
+}
+
+function processMouse(e) {
+	currentObj = shuffleQueue();
+	if (isNS) {
+		eval("document." + currentObj + ".left = e.pageX - 10;");
+		eval("document." + currentObj + ".top = e.pageY + 10;");
+	}
+	else {
+		eval("document.all." + currentObj + ".style.pixelLeft = event.clientX + document.body.scrollLeft - 10 ;");
+		eval("document.all." + currentObj + ".style.pixelTop = event.clientY + document.body.scrollTop + 20;");
+	}
+}
+
+function shuffleQueue() {
+	lastItemPos = queue.length - 1;
+	lastItem = queue[lastItemPos];
+	for (i = lastItemPos; i>0; i--) 	queue[i] = queue[i-1];
+	queue[0] = lastItem;
+	queue[0].currentFrame = 1;
+	eval(layerRef + '.' + queue[0].trailSpriteID +  styleRef + '.visibility = "visible"');	
+	return 	queue[0].trailSpriteID;
+}
+
+function MM_init() {
+	for(x=0; x<NUM_OF_TRAIL_PARTS; x++)	queue[x] = new trailSpriteObj(x+1) ;
+	if (isNS)	document.captureEvents(Event.MOUSEMOVE);
+	document.onmousemove = processMouse;
+	setInterval("processAnim();",5);
+}	
+
+//-->
+
+</script>
+</head>
+
+<body onload="MM_init();" bgcolor="#000000" text="#FFCCCC">
+<div id="trailSprite1" style="position: absolute; height:28px; width:36px;z-index: 10000"><img SRC="mouse.gif" NAME="trailSprite3img" BORDER=0 height=7 width=7></div>
+
+<div id="trailSprite2" style="position: absolute; height:28px; width:26px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite2img" BORDER=0 height=5 width=5></div>
+
+<div id="trailSprite3" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite1img" BORDER=0 height=14 width=14></div>
+
+<div id="trailSprite4" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite5img" BORDER=0 height=11 width=11></div>
+
+<div id="trailSprite5" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite4img" BORDER=0 height=9 width=9></div>
+<div id="Layer1" style="position:absolute; width:200px; height:115px; z-index:1; left: 14px; top: 14px"><img src="lifetitle.jpg" width="400" height="300"></div>
+<div id="Layer2" style="position:absolute; width:302px; height:123px; z-index:1; left: 21px; top: 332px"><b><i><font color="555555">在</font></i></b><font size="2" color="555555">這三年，我們走過了一切…<br>
+  快樂的時光…悲傷的時光…<br>
+  都隨著時間漸漸離我們遠去…<br>
+  悲傷的時光…就讓他遠走吧!!<br>
+  不過…快樂的時光， 我們就得想辦法將他抓住…<br> 
+  但，誰有這能力呢??<br> 
+  你的手??我的手??不…通通不能!!<br> 
+  唯有那一張張令人懷念的照片辦的到…<br> 
+  現在…我們又要開始分享那快樂的過去…<br> 
+  泛黃的扉頁，現在即將再度開啟………</font></div> 
+<div id="Layer2" style="position:absolute; width:292px; height:123px; z-index:2; left: 19px; top: 330px"><b><i><font color="#FFFFFF">在</font></i></b><font size="2">這三年，我們走過了一切…<br> 
+  快樂的時光…悲傷的時光…<br> 
+  都隨著時間漸漸離我們遠去…<br> 
+  悲傷的時光…就讓他遠走吧!!<br> 
+  不過…快樂的時光， 我們就得想辦法將他抓住…<br> 
+  但，誰有這能力呢??<br> 
+  你的手??我的手??不…通通不能!!<br> 
+  唯有那一張張令人懷念的照片辦的到…<br> 
+  現在…我們又要開始分享那快樂的過去…<br> 
+  泛黃的扉頁，現在即將再度開啟………</font></div> 
+<div id="Layer4" style="position:absolute; width:39px; height:31px; z-index:4; left: 265px; top: 467px"><img src="aboutball.gif" width="50" height="50"></div> 
+<div id="Layer5" style="position:absolute; width:35px; height:331px; z-index:5; left: 700px; top: 18px"><img src="lifebar.gif" width="50" height="400"></div> 
+<div id="Layer3" style="position:absolute; width:30px; height:48px; z-index:3; left: 701px; top: 416px"><img src="lifeball.gif" width="50" height="80"></div> 
+<div id="Layer6" style="position:absolute; width:113px; height:35px; z-index:6; left: 494px; top: 38px"><a href="life01index.htm"><img src="lifeicon01.jpg" width="180" height="60" border="0"></a></div> 
+<div id="Layer7" style="position:absolute; width:63px; height:28px; z-index:7; left: 420px; top: 139px"><a href="life0201.htm"><img src="lifeicon02.jpg" width="180" height="60" border="0"></a></div> 
+<div id="Layer8" style="position:absolute; width:121px; height:21px; z-index:8; left: 499px; top: 236px"><a href="life0301.htm"><img src="lifeicon03.jpg" width="180" height="60" border="0"></a></div>
+<div id="Layer9" style="position:absolute; width:270px; height:81px; z-index:9; left: 414px; top: 350px"> 
+  <table border="0" width="100%">
+    <tr bgcolor="282828"> 
+      <td width="100%"> 
+        <p align="center"><b><i><font size="2" color="#FF00FF">ξ</font><font size="2" color="#FFFF00">P.S 
+          注意事項</font><font size="2" color="#FF00FF">ξ</font></i></b>
+      </td>
+    </tr>
+    <tr bgcolor="222222"> 
+      <td width="100%" height="54"> 
+        <p align="center"><font size="2" color="ffffbb">當您在瀏覽本區時…建議您先確定您已將關於愛班、本班恩師、學生資料都瀏覽完畢…這樣，您才能更清楚我們照片裡面速在&quot;說什麼&quot;，謝謝!!<br>
+          </font>
+        </td>
+    </tr>
+  </table>
+</div>
+<div id="Layer11" style="position:absolute; width:343px; height:16px; z-index:10004; left: 405px; top: 528px"><a href="aboutindex.htm"><img src="abouticon00.gif" width="70" height="20" border="0"></a><a href="tfileindex.htm"><img src="abouticon01.gif" width="70" height="20" border="0"></a><a href="sfileindex.htm"><img src="abouticon02.gif" width="70" height="20" border="0"></a><a href="sayindex.htm"><img src="abouticon04.gif" width="70" height="20" border="0"></a><a href="indexmain.htm"><img src="abouticon05.gif" width="56" height="20" border="0"></a></div>
+</body>
+</html>

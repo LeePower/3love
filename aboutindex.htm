@@ -1,0 +1,139 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>關於愛班--愛班的大小事情~~</title>
+<script language="JavaScript1.2">
+<!--
+
+var isNS = (navigator.appName == "Netscape");
+layerRef = (isNS) ? "document" : "document.all";
+styleRef = (isNS) ? "" : ".style";
+var queue = new Array();
+var NUM_OF_TRAIL_PARTS = 5;
+
+for (x=1; x < 6; x++) {
+	eval("trailSpriteFrame" + x + " = new Image(28,36);");
+	eval("trailSpriteFrame" + x + ".src = 'mouse" + x + ".gif';");
+}
+
+function trailSpriteObj(anID) {
+	this.trailSpriteID = "trailSprite" + anID;
+	this.imgRef = "trailSprite" + anID + "img";
+	this.currentFrame = 1;
+	this.animateTrailSprite = animateTrailSprite;
+}
+
+function animateTrailSprite() {
+	if (this.currentFrame <6 ) {
+		if (isNS)	eval("document." + this.trailSpriteID +".document['"+ this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+		else		eval("document['" + this.imgRef + "'].src  =  trailSpriteFrame" + this.currentFrame + ".src");
+
+		this.currentFrame ++;
+	}
+	else	eval(layerRef + '.' + this.trailSpriteID +  styleRef + '.visibility = "hidden"');	
+}
+
+function processAnim() {
+	for(x=0; x < NUM_OF_TRAIL_PARTS; x++)
+	queue[x].animateTrailSprite();
+}
+
+function processMouse(e) {
+	currentObj = shuffleQueue();
+	if (isNS) {
+		eval("document." + currentObj + ".left = e.pageX - 10;");
+		eval("document." + currentObj + ".top = e.pageY + 10;");
+	}
+	else {
+		eval("document.all." + currentObj + ".style.pixelLeft = event.clientX + document.body.scrollLeft - 10 ;");
+		eval("document.all." + currentObj + ".style.pixelTop = event.clientY + document.body.scrollTop + 20;");
+	}
+}
+
+function shuffleQueue() {
+	lastItemPos = queue.length - 1;
+	lastItem = queue[lastItemPos];
+	for (i = lastItemPos; i>0; i--) 	queue[i] = queue[i-1];
+	queue[0] = lastItem;
+	queue[0].currentFrame = 1;
+	eval(layerRef + '.' + queue[0].trailSpriteID +  styleRef + '.visibility = "visible"');	
+	return 	queue[0].trailSpriteID;
+}
+
+function MM_init() {
+	for(x=0; x<NUM_OF_TRAIL_PARTS; x++)	queue[x] = new trailSpriteObj(x+1) ;
+	if (isNS)	document.captureEvents(Event.MOUSEMOVE);
+	document.onmousemove = processMouse;
+	setInterval("processAnim();",5);
+}	
+
+//-->
+
+</script>
+</head>
+
+<body onload="MM_init();" background="aboutbar.gif" bgcolor="#000000" text="#CCCCFF">
+<div id="trailSprite1" style="position: absolute; height:28px; width:36px;z-index: 10000"><img SRC="mouse.gif" NAME="trailSprite3img" BORDER=0 height=7 width=7></div>
+
+<div id="trailSprite2" style="position: absolute; height:28px; width:26px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite2img" BORDER=0 height=5 width=5></div>
+
+<div id="trailSprite3" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite1img" BORDER=0 height=14 width=14></div>
+
+<div id="trailSprite4" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite5img" BORDER=0 height=11 width=11></div>
+
+<div id="trailSprite5" style="position: absolute; height:28px; width:36px;z-index: 1000"><img SRC="mouse.gif" NAME="trailSprite4img" BORDER=0 height=9 width=9></div>
+<div id="Layer6" style="position:absolute; width:91px; height:30px; z-index:8; left: 134px; top: 195px"><img src="abouticon.gif" width="150" height="40"></div>
+<div id="Layer6" style="position:absolute; width:91px; height:30px; z-index:8; left: 151px; top: 117px"><img src="abouticon.gif" width="150" height="40"></div>
+<div id="Layer6" style="position:absolute; width:91px; height:30px; z-index:9; left: 134px; top: 43px"><img src="abouticon.gif" width="150" height="40"></div>
+<div id="Layer1" style="position:absolute; width:77px; height:278px; z-index:1; left: 10px; top: 35px"><img src="aboutbar2.gif" width="82" height="322"></div>
+<div id="Layer4" style="position:absolute; width:200px; height:115px; z-index:100; left: 268px; top: 16px"><img src="everybody8.jpg" width="400" height="253"></div>
+<div id="Layer2" style="position:absolute; width:293px; height:32px; z-index:5; left: 13px; top: 342px">&nbsp;  
+  <b><i><font size="7"><u><font color="#5959FF">Ab</font><font color="#9D9DFF">ou</font>t<font color="#FFFFFF"> 
+  </font> 
+  L<font color="#9D9DFF">ov</font><font color="#5959FF">e</font></u></font></i></b>
+</div> 
+<div id="Layer3" style="position:absolute; width:39px; height:213px; z-index:3; left: 74px; top: 105px"><font size="7"><b><i><font color="#666666" size="6">愛<br>
+  班<br>
+  的<br>
+  大<br>
+  小<br>
+  代<br>
+  誌</font></i></b></font></div>
+<div id="Layer3" style="position:absolute; width:39px; height:213px; z-index:5; left: 73px; top: 103px"><font size="7"><b><i><font color="#333333" size="6">愛<br>
+  班<br>
+  的<br>
+  大<br>
+  小<br>
+  代<br>
+  誌</font></i></b></font></div>
+<div id="Layer5" style="position:absolute; width:342px; height:115px; z-index:10; left: 376px; top: 284px"><b><i><font color="#FFFFFF" size="4">國</font></i></b><i><font color="#CCFFCC" size="2">中三年，有歡笑、有淚水……<br>
+  有著說不完的點點滴滴。<br>
+  現在…我們即將和這美麗的笑園說Bye Bye...<br>
+  就讓大家回憶一下…<br>
+  我們過去走過的足跡…… </font></i></div>
+<div id="Layer5" style="position:absolute; width:342px; height:115px; z-index:7; left: 380px; top: 287px"><b><i><font color="#333333" size="4">國</font></i></b><i><font color="#333333" size="2">中三年，有歡笑、有淚水……<br>
+  有著說不完的點點滴滴。<br>
+  現在…我們即將和這美麗的笑園說Bye Bye...<br>
+  就讓大家回憶一下…<br>
+  我們過去走過的足跡…… </font></i></div>
+<div id="Layer7" style="position:absolute; width:99px; height:19px; z-index:10001; left: 164px; top: 221px"><b><font color="#999999"><i><font size="5" color="333333">Life</font></i></font></b></div>
+<div id="Layer7" style="position:absolute; width:99px; height:19px; z-index:10001; left: 180px; top: 142px"><b><font color="#999999"><i><font size="5" color="333333">History</font></i></font></b></div>
+<div id="Layer7" style="position:absolute; width:62px; height:19px; z-index:1000; left: 165px; top: 67px"><b><font color="#999999"><i><font size="5" color="333333">About</font></i></font></b></div>
+<div id="Layer8" style="position:absolute; width:95px; height:23px; z-index:10; left: 171px; top: 200px"><font size="5"><b><i><font color="#FF0033"><a href="about03.htm"><font color="#FF0000">生</font></a></font></i></b></font><a href="about03.htm"><i><b><font color="#FFFFFF">活花絮</font></b></i></a></div>
+<div id="Layer8" style="position:absolute; width:95px; height:23px; z-index:10; left: 189px; top: 122px"><font size="5"><b><i><font color="#FF0033"><a href="about02.htm"><font color="#FF0000">輝</font></a></font></i></b></font><a href="about02.htm"><i><b><font color="#FFFFFF">煌歷史</font></b></i></a></div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 625px; top: 266px">○</div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 642px; top: 36px">○</div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 712px; top: 62px">○</div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 705px; top: 204px">○</div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 520px; top: 367px">○</div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 732px; top: 332px">○</div>
+<div id="Layer8" style="position:absolute; width:95px; height:23px; z-index:10; left: 171px; top: 48px"><font size="5"><b><i><font color="#FF0033"><a href="about01.htm"><font color="#FF0000">愛</font></a></font></i></b></font><a href="about01.htm"><i><b><font color="#FFFFFF">班簡介</font></b></i></a></div>
+<div id="Layer10" style="position:absolute; width:43px; height:42px; z-index:10003; left: 584px; top: 342px"><img src="aboutball.gif" width="50" height="50"></div>
+<div id="Layer11" style="position:absolute; width:343px; height:16px; z-index:10004; left: 413px; top: 407px"><a href="tfileindex.htm"><img src="abouticon01.gif" width="70" height="20" border="0"></a><a href="sfileindex.htm"><img src="abouticon02.gif" width="70" height="20" border="0"></a><a href="lifeindex.htm"><img src="abouticon03.gif" width="70" height="20" border="0"></a><a href="sayindex.htm"><img src="abouticon04.gif" width="70" height="20" border="0"></a><a href="indexmain.htm"><img src="abouticon05.gif" width="56" height="20" border="0"></a></div>
+<div id="Layer9" style="position:absolute; width:11px; height:9px; z-index:10002; left: 678px; top: 368px">○</div>
+</body> 
+ 
+</html> 
